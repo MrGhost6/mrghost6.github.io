@@ -1,0 +1,500 @@
+/* =========================================
+   Variables & Reset
+   ========================================= */
+:root {
+    --primary: #E67E22;
+    --primary-hover: #D35400;
+    --bg: #0F0F0F;
+    --bg-light: #1A1A1A;
+    --bg-lighter: #252525;
+    --text: #F0F0F0;
+    --text-muted: #BBB;
+    --cream: #F5F5DC;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--primary);
+    line-height: 1.3;
+}
+
+/* =========================================
+   Utility Classes
+   ========================================= */
+.container,
+section {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+    color: var(--cream);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: var(--primary);
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+    border: 2px solid var(--primary);
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 2px solid var(--cream);
+    color: var(--cream);
+    box-shadow: none;
+}
+
+.btn.secondary:hover {
+    background-color: var(--cream);
+    color: var(--bg);
+}
+
+/* =========================================
+   Language Switcher
+   ========================================= */
+.lang-switcher {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 1000;
+    background: rgba(15, 15, 15, 0.95);
+    padding: 8px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 4px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+.lang-btn:hover {
+    color: var(--primary);
+}
+
+.lang-btn.active {
+    background-color: var(--primary);
+    color: #FFF;
+    font-weight: 700;
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.hero .tagline {
+    font-size: 1.2rem;
+    color: #CCC;
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+
+.hero .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   About Section
+   ========================================= */
+.about {
+    background-color: var(--bg);
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   Menu Section
+   ========================================= */
+.menu {
+    background-color: var(--bg-light);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-category {
+    background: var(--bg-lighter);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-category:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.menu-category h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.menu-item .name {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.menu-item .price {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   Why Choose Section
+   ========================================= */
+.why-choose {
+    text-align: center;
+    background-color: var(--bg);
+}
+
+.benefit-list li {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.benefit-list li::before {
+    content: '✦';
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+/* =========================================
+   Reviews Section
+   ========================================= */
+.reviews {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 100px 24px;
+}
+
+.review-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(5px);
+}
+
+.review-content .stars {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   Location & Contact
+   ========================================= */
+.location-section {
+    background-color: var(--bg-light);
+}
+
+.location-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.map-wrapper {
+    height: 400px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 2px solid var(--primary);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-info p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-info .btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn.whatsapp {
+    background-color: #25D366;
+    border-color: #25D366;
+    color: #FFF;
+}
+
+.btn.whatsapp:hover {
+    background-color: transparent;
+    color: #25D366;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 1px solid #222;
+}
+
+footer .logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--cream);
+    margin-bottom: 1rem;
+}
+
+footer p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   Language Handling
+   ========================================= */
+.en,
+.fr,
+.ar {
+    display: none;
+}
+
+.en.active,
+.fr.active,
+.ar.active {
+    display: block;
+}
+
+/* Inline block elements */
+span.en.active,
+span.fr.active,
+span.ar.active {
+    display: inline-block;
+}
+
+/* =========================================
+   Responsive Design
+   ========================================= */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .location-container {
+        grid-template-columns: 1fr;
+    }
+
+    .map-wrapper {
+        height: 300px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .lang-switcher {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* =========================================
+   RTL Support (Arabic)
+   ========================================= */
+html[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .hero .cta-buttons,
+html[dir="rtl"] .menu-item,
+html[dir="rtl"] .benefit-list li {
+    direction: rtl;
+}
+
+html[dir="rtl"] .lang-switcher {
+    right: auto;
+    left: 24px;
+}
+
+html[dir="rtl"] .section-title::after {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+html[dir="rtl"] .contact-info {
+    text-align: right;
+}
+
+/* Fix for icons/flex in RTL if needed */
+html[dir="rtl"] .menu-item {
+    flex-direction: row-reverse;
+}
+
+/* Actually, for RTL, price is usually on left (end) and name on right (start)
+   With LTR flex: Start(Name) ... End(Price)
+   With RTL direction: Start(Name-Right) ... End(Price-Left)
+   So default flex behavior is usually correct for RTL text direction.
+*/
